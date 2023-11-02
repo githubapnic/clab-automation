@@ -1,4 +1,5 @@
 name: automation_lab
+#### this is the OOB network for the docker containers 
 mgmt:
   network: custom_mgmt
   ipv4-subnet: 172.18.31.0/24
