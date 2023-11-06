@@ -79,6 +79,9 @@ topology:
     salt:
         kind: linux
         image: docker.apnictraining.net/ubuntu-apnic-ssh:20.04
+        binds:
+          - /srv/salt:/srv/salt
+          - /srv/etc/salt:/etc/salt        
     elastisearch:
         kind: linux
         image: docker.apnictraining.net/elasticsearch/elasticsearch:7.10.0
