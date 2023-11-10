@@ -1,1 +1,3 @@
-SERVER_HOST=kibana
+server.name: clab-automation_lab-kibana
+server.host: clab-automation_lab-kibana
+elasticsearch.hosts: http://clab-automation_lab-elastisearch:9200

@@ -1,4 +1,5 @@
 name: automation_lab
+prefix:
 mgmt:
   network: custom_mgmt
   ipv4-subnet: 172.18.31.0/24
@@ -82,7 +83,7 @@ topology:
         binds:
           - /srv/salt:/srv/salt
           - /srv/etc/salt:/etc/salt  
-    elastisearch:
+    elasticsearch:
         kind: linux
         image: docker.apnictraining.net/elasticsearch/elasticsearch:7.10.0
         ports:
@@ -98,7 +99,7 @@ topology:
         env-files:
           - ./kibana-vars
         wait-for:
-          - elastisearch
+          - elasticsearch
     
   links:
     - endpoints: ["router1:eth1","router2:eth1"]
