@@ -1,5 +1,6 @@
-# clabs-automation
+### clabs-automation
 
+These Container Labs files for the Automation workshop.
+This will create the topology for all of the required routers and VMs
 
-
-## Internal dev place for the Clabs for the automation workshop
+*One Topology __per__ participant *
