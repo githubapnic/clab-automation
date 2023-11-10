@@ -26,7 +26,7 @@ topology:
         startup-delay: 90
     core1:
         kind: vr-xrv
-        cpu-set: 0-1
+        # cpu-set: 0-1
         startup-config: initial_configs/core1.cfg
         env:
           BOOT_DELAY: 120
@@ -36,7 +36,7 @@ topology:
           RAM: 8192
     core2:
         kind: vr-xrv
-        cpu-set: 4-5
+        # cpu-set: 4-5
         startup-config: initial_configs/core2.cfg
         env:
           BOOT_DELAY: 240
