@@ -1,0 +1,51 @@
+services:
+  kibana:
+    container_name: kibana
+    image: docker:5000/kibana:7.10.0
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+    networks:
+      - custom_mgmt
+  
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker:5000/elasticsearch:7.10.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - "discovery.type=single-node"
+    networks:
+      - custom_mgmt
+  salt:
+    image: docker:5000/ubuntu-salt:20.04
+    container_name: salt
+    restart: unless-stopped
+    hostname: salt
+    volumes:
+      - /srv/salt:/srv/salt
+      - /etc/salt:/etc/salt
+    networks:
+      - custom_mgmt
+  srv1:
+    image: docker:5000/ubuntu-apnic-ssh:20.04
+    restart: unless-stopped
+    hostname: srv1
+    container_name: srv1
+  srv2:
+    image: docker:5000/ubuntu-apnic-ssh:20.04
+    restart: unless-stopped
+    hostname: srv2
+    container_name: srv2
+  srv3:
+    image: docker:5000/ubuntu-apnic-ssh:20.04
+    restart: unless-stopped
+    hostname: srv2
+    container_name: srv3
+
+networks:
+  custom_mgmt:
+    name: custom_mgmt
+    external: true
